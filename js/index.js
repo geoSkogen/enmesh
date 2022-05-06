@@ -17,12 +17,20 @@ window.addEventListener('load', function (event) {
         if (!text_elements_arr.length) {
 
           for (let i = 0; i < first_strings.length; i++) {
-            let el = document.createElement('h1')
+            let el = document.createElement('h3')
+            for (let ii = 0; ii < first_strings[i].split('').length; ii++) {
+              let span = document.createElement('span')
+              let char = document.createTextNode(first_strings[i][ii])
+              span.appendChild(char)
+              span.className = 'char-span'
+              el.appendChild(span)
+            }
+            el.className = 'line-span'
             text_elements_arr.push(el)
             app_dom.appendChild(el)
           }
         }
-
+        /*
         multi_string_enmesh(
           first_strings,
           next_strings,
@@ -30,6 +38,7 @@ window.addEventListener('load', function (event) {
           config_data.variance,
           text_elements_arr
         )
+        */
       }
     }
   } else {
