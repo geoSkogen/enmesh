@@ -9,9 +9,14 @@ const mesher = {
     variance,
     text_elements_arr
   ) {
-
+    var scramble_matrix = []
+    var second_stage
+    this.first_strings = first_strings
+    this.next_strings = next_strings
+    for (var i = 0; i < first_strings.length; i++) {
+       this.enmesh_line(first_strings[i],next_strings[i],i)
+    }
   },
-
   swap_chars : function ( line_index, span_index, replacement_char, fade_effect, increment, interval) {
 
     if ( document.querySelectorAll('.line-span')[line_index] &&
@@ -25,7 +30,7 @@ const mesher = {
         var i = 1
         increment = increment ? increment: 0.025
         interval = interval ? interval : 66
-        fadein = setInterval( function () {
+        fadeout = setInterval( function () {
           el.style.opacity = i
           i -= increment
           if (i <= 0) {
@@ -49,51 +54,87 @@ const mesher = {
 
     } else {
       console.log('invalid element indices')
+      console.log(line_index)
+      console.log(span_index)
+      console.log()
     }
   },
 
-  enmesh_line : function (first_string, next_string) {
+  replace_line : function (first_string,next_string,row_index) {
+    var char_index = 0;
+    var stage_length = first_string.length > next_string.length ? first_string.length : next_string.length
+    var char_interval = setInterval(function() {
+
+      var fallback_char = next_string[char_index] ? next_string[char_index] : ''
+
+      mesher.swap_chars(
+        row_index,
+        char_index,
+        fallback_char,
+        true,
+        0,
+        0
+      )
+      char_index++
+      if (char_index>=stage_length) {
+        clearInterval(char_interval)
+      }
+    },500)
+  },
+
+  enmesh_line : function (first_string, next_string, row_index) {
     var line_matrix = []
-    for (var i = 0; i < first_string.length; i++) {
+    var stage_index = 0
+    var stage_interval = setInterval(function() {
       var stage_matrix = { next_chars: [], first_indices: [] }
-      for (var ii = 0; ii < i; ii++ ) {
+      var char_index = 0
+      var char_interval = setInterval(function() {
+        var mesher_stage
+
+        var fallback_char = first_string[char_index] ? first_string[char_index] : next_string[char_index]
         stage_matrix.next_chars.push( next_string[ Math.floor(Math.random()*next_string.length) ])
         stage_matrix.first_indices.push( Math.floor(Math.random()*first_string.length) )
-      }
+
+        mesher.swap_chars(
+          row_index,
+          Math.floor(Math.random()*first_string.length),
+          next_string[ Math.floor(Math.random()*next_string.length) ],
+          true,
+          0,
+          0
+        )
+
+        mesher_stage = setTimeout( function() {
+
+          mesher.swap_chars(
+            row_index,
+            char_index,
+            fallback_char,
+            true,
+            0,
+            0
+          )
+
+        },750)
+
+        char_index++
+        if (char_index>=stage_index) {
+          clearInterval(char_interval)
+        }
+
+      },500)
       line_matrix.push(stage_matrix)
-    }
-
-    return line_matrix
-  },
-
-  enmesh_line_text : function (line_matrix, line_index) {
-    var n = 0
-    line_matrix.forEach( (stage_matrix) => {
-
-      var interval = setInterval( function () {
-        for (var i = 0; i < stage_matrix.next_chars.length; i++) {
-          console.log('')
-          console.log('iteration of line matrix')
-          console.log(i)
-          if (stage_matrix.first_indices[i] && stage_matrix.next_chars[i]) {
-            console.log('')
-            console.log('stage matrix first index:')
-            console.log(stage_matrix.first_indices[i])
-            console.log('stage matrix next char:')
-            console.log(stage_matrix.next_chars[i])
-            var timeout = setTimeout( function () {
-              mesher.swap_chars(line_index, stage_matrix.first_indices[i], stage_matrix.next_chars[i], true, 0, 0)
-            },66)
+      stage_index++
+      if (stage_index>=first_string.length) {
+        clearInterval(stage_interval)
+        var cleanup_stage = setTimeout(function(){
+          for (var i = 0; i < mesher.next_strings.length; i++) {
+            mesher.replace_line(mesher.first_strings[i],mesher.next_strings[i],i)
           }
-
-        }
-        if (n===line_matrix.length-1) {
-          clearInterval(interval)
-        }
-        n++
-      },2500)
-    })
-
+        },5000)
+      }
+    },500)
+    return line_matrix
   }
 
 }
