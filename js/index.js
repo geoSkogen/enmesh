@@ -62,7 +62,7 @@ window.addEventListener('load', function (event) {
     }
   }
 
-  function get_user_data() {
+  function get_user_input() {
     const data = {"first_strings_arr" : [[]], "next_strings_arr" : [[]]}
     const field_rows = document.querySelectorAll('.enmesh-fields')
     for (let i = 0; i < field_rows.length; i++) {
@@ -77,14 +77,14 @@ window.addEventListener('load', function (event) {
 
   const app_dom = document.querySelector('#app')
   const text_dom = document.querySelector('#text-display')
-  let user_data = null
+  let user_input = null
   document.querySelector('#add-field').addEventListener('click', function (event) {
     add_field()
   })
   document.querySelector('#enmesh').addEventListener('click', function (event) {
-    user_data = get_user_data()
-    if (user_data) {
-      enmesh(user_data)
+    user_input = get_user_input()
+    if (user_input) {
+      enmesh(user_input)
     } else {
       enmesh(content_data)
     }
