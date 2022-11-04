@@ -8,6 +8,7 @@ const mesher = {
   mutations : [],
   amplitude : undefined,
   stages : [],
+  diffs  : [],
 
   multi_string_enmesh : function (
     first_strings,
@@ -38,25 +39,24 @@ const mesher = {
 
         //  if (document.querySelectorAll('.line-span')[row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
 
-            this.swap_chars( row_index, swap_index, swap_char, true, 0, 0)
+            this.swap_chars( row_index, swap_index, swap_char, false, 0, 0)
         //  }
         }
-        //console.log(this.mutations[row_index])
+        console.log(this.mutations[row_index])
       }
       for (var stage_index = 0; stage_index < this.stages[row_index].unscramble.length;stage_index++) {
         for (var char_swap_index = 0; char_swap_index < this.stages[row_index].unscramble[stage_index].next_chars.length; char_swap_index++) {
           var swap_char = this.stages[row_index].unscramble[stage_index].next_chars[char_swap_index]
           var swap_index = this.stages[row_index].unscramble[stage_index].str_indices[char_swap_index]
-          this.mutations[row_index] = this.mutations[row_index].substring(0,swap_index) + swap_char + this.mutations[row_index].substring(swap_index+1)
+          this.mutations[row_index] = (this.mutations[row_index].substring(0,swap_index) + swap_char + this.mutations[row_index].substring(swap_index+1) ).slice(0, this.next_strings[row_index].length)
 
           //if (document.querySelectorAll('.line-span')[row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
 
-            this.swap_chars( row_index, swap_index, swap_char, true, 0, 0)
+            this.swap_chars( row_index, swap_index, swap_char, false, 0, 0)
           //}
         }
-        //console.log(this.mutations[row_index])
+        console.log(this.mutations[row_index])
       }
-      //console.log(this.stages[0].unscramble)
     }
   },
 
@@ -102,6 +102,12 @@ const mesher = {
         } else {
           stage.next_chars.push(next_string[stage_index])
           stage.str_indices.push(stage_index)
+        }
+      }
+      if ((first_string.length - next_string.length)>0) {
+        for (var diff_index = 0; diff_index < first_string.length - next_string.length; diff_index++) {
+          stage.next_chars.push('')
+          stage.str_indices.push(diff_index + next_string.length)
         }
       }
       this.stages[row_index].unscramble.push(stage)
