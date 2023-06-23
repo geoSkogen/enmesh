@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'Alegreya Sans';
+	src: url('https://fonts.gstatic.com/s/alegreyasans/v24/5aUz9_-1phKLFgshYDvh6Vwt7VptvQ.woff2');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Poiret One';
+	src: url('https://fonts.gstatic.com/s/poiretone/v14/UqyVK80NJXN4zfRgbdfbo55cVw.woff2');
+	font-style: normal;
+	font-weight: normal;
+}
+
+h1, h2 {
+  font-family: 'Poiret One';
+}
+
+p {
+  font-family: 'Alegreya Sans';
+  flex-basis: 420px;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
 #app {
   padding: 0.33rem;
   background-color: dimgrey;
@@ -376,7 +401,7 @@
 
 #top-left-semi-circle-overflow-mask {
   top: 5.05rem;
-  left: -8.2rem;
+  left: -8.15rem;
   height: 15rem;
   width: 7.16rem;
 }
