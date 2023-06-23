@@ -1,0 +1,22 @@
+.half-chevron-down-left, .half-chevron-down-right,
+.half-chevron-up-left, .half-chevron-up-right {
+  width: 33%;
+  height: 20px;
+  margin-top: 1rem;
+}
+
+.half-chevron-down-left {
+  transform: skewY(27deg);
+}
+
+.half-chevron-down-right {
+  transform: skewY(153deg);
+}
+
+.half-chevron-up-left {
+  transform: skewY(333deg);
+}
+
+.half-chevron-up-right {
+  transform: skewY(207deg);
+}
