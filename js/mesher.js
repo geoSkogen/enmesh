@@ -28,35 +28,51 @@ const mesher = {
     for (var i = 0; i < first_strings.length; i++) {
       this.get_line_stages(first_strings[i],next_strings[i],i)
     }
-
-    for (var row_index = 0; row_index < this.stages.length; row_index++) {
-
-      for (var stage_index = 0; stage_index < this.stages[row_index].scramble.length; stage_index++ ) {
-        for (var char_swap_index = 0; char_swap_index < this.stages[row_index].scramble[stage_index].next_chars.length; char_swap_index++) {
-          var swap_char = this.stages[row_index].scramble[stage_index].next_chars[char_swap_index]
-          var swap_index = this.stages[row_index].scramble[stage_index].str_indices[char_swap_index]
-          this.mutations[row_index] = this.mutations[row_index].substring(0,swap_index) + swap_char + this.mutations[row_index].substring(swap_index+1)
-
-        //  if (document.querySelectorAll('.line-span')[row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
-
-            this.swap_chars( row_index, swap_index, swap_char, false, 0, 0)
+    console.log('rows')
+    console.log(this.first_strings.length)
+    for (var row_index = 0; row_index < this.first_strings.length; row_index++) {
+      console.log('row index')
+      console.log(row_index)
+      //for (var stage_index = 0; stage_index < this.stages[row_index].scramble.length; stage_index++ ) {
+      var scramble_stage_index = 0
+      var this_row_index = row_index
+      var scramble_interval = setInterval( function () {
+        console.log('row index')
+        console.log(this_row_index)
+        for (var char_swap_index = 0; char_swap_index < mesher.stages[this_row_index].scramble[scramble_stage_index].next_chars.length; char_swap_index++) {
+          var swap_char = mesher.stages[this_row_index].scramble[scramble_stage_index].next_chars[char_swap_index]
+          var swap_index = mesher.stages[this_row_index].scramble[scramble_stage_index].str_indices[char_swap_index]
+          mesher.mutations[this_row_index] = mesher.mutations[this_row_index].substring(0,swap_index) + swap_char + mesher.mutations[this_row_index].substring(swap_index+1)
+        //  if (document.querySelectorAll('.line-span')[this_row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
+            mesher.swap_chars( this_row_index, swap_index, swap_char, true, 0, 0)
         //  }
         }
-        console.log(this.mutations[row_index])
-      }
-      for (var stage_index = 0; stage_index < this.stages[row_index].unscramble.length;stage_index++) {
-        for (var char_swap_index = 0; char_swap_index < this.stages[row_index].unscramble[stage_index].next_chars.length; char_swap_index++) {
-          var swap_char = this.stages[row_index].unscramble[stage_index].next_chars[char_swap_index]
-          var swap_index = this.stages[row_index].unscramble[stage_index].str_indices[char_swap_index]
-          this.mutations[row_index] = (this.mutations[row_index].substring(0,swap_index) + swap_char + this.mutations[row_index].substring(swap_index+1) ).slice(0, this.next_strings[row_index].length)
-
-          //if (document.querySelectorAll('.line-span')[row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
-
-            this.swap_chars( row_index, swap_index, swap_char, false, 0, 0)
-          //}
+        console.log(mesher.mutations[this_row_index])
+        scramble_stage_index++
+        if (scramble_stage_index >= mesher.stages[this_row_index].scramble.length) {
+          clearInterval(scramble_interval)
+          var unscramble_stage_index = 0
+          var unscramble_interval = setInterval( function () {
+            for (var char_swap_index = 0; char_swap_index < mesher.stages[this_row_index].unscramble[unscramble_stage_index].next_chars.length; char_swap_index++) {
+              var swap_char = mesher.stages[this_row_index].unscramble[unscramble_stage_index].next_chars[char_swap_index]
+              var swap_index = mesher.stages[this_row_index].unscramble[unscramble_stage_index].str_indices[char_swap_index]
+              mesher.mutations[this_row_index] = (mesher.mutations[this_row_index].substring(0,swap_index) + swap_char + mesher.mutations[this_row_index].substring(swap_index+1) ).slice(0, mesher.next_strings[this_row_index].length)
+              //if (document.querySelectorAll('.line-span')[this_row_index].querySelectorAll('.char-span')[swap_index].innerText!=swap_char) {
+                mesher.swap_chars( this_row_index, swap_index, swap_char, true, 0, 0)
+              //}
+            }
+            console.log(mesher.mutations[this_row_index])
+            unscramble_stage_index++
+            if (unscramble_stage_index >= mesher.stages[this_row_index].unscramble.length) {
+              clearInterval(unscramble_interval)
+            }
+          },600)
         }
-        console.log(this.mutations[row_index])
-      }
+      },600)
+      //}
+      //for (var stage_index = 0; stage_index < this.stages[row_index].unscramble.length;stage_index++) {
+
+      //}
     }
   },
 
@@ -127,7 +143,7 @@ const mesher = {
         var fadein
         var i = 1
         increment = increment ? increment: 0.0125
-        interval = interval ? interval : 40
+        interval = interval ? interval : 5
         fadeout = setInterval( function () {
           el.style.opacity = i
           i -= increment
