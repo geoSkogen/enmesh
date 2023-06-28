@@ -115,6 +115,8 @@
   grid-column-end: 10;
   grid-row-start: 4;
   grid-row-end: 8;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
 }
 
  .chevrons-grid--inner-grid--chevron-side-segments--tall {
@@ -139,4 +141,35 @@
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 03.2258065% 03.2258065% 16.1290323% 51.6129032% 19.3548387% 06.4516129%;
+}
+
+.chevrons-grid-b {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 3.8718268% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 03.3504947% 03.8570616%;
+}
+
+
+.chevrons-grid-a {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 3.8718268% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616%;
+}
+
+.chevrons-grid-long-short {
+  display: grid;
+  grid-rows: 100%;
+  grid-template-columns: 75% 25%;
+}
+
+.chevrons-grid-short-long {
+  display: grid;
+  grid-rows: 100%;
+  grid-template-columns: 25% 75%;
+}
+
+.chevrons-grid-backdrop-tile {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
