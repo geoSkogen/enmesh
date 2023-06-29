@@ -14,3 +14,11 @@
 .half-chevron-up-right {
   transform: skewY(225deg);
 }
+
+.triangle-left {
+  transform: skewX(225deg);
+}
+
+.triangle-right {
+  transform: skewX(315deg);
+}

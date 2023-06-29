@@ -144,16 +144,17 @@
 }
 
 .chevrons-grid-b {
+  overflow: hidden;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 3.8718268% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 03.3504947% 03.8570616%;
+  grid-template-rows: 3.5718268% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 03.3504947% 03.8570616%;
 }
 
-
 .chevrons-grid-a {
+  overflow: hidden;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 3.8718268% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616%;
+  grid-template-rows: 3.5718268% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616% 7.2075563% 03.3504947% 03.8570616%;
 }
 
 .chevrons-grid-long-short {
@@ -166,6 +167,33 @@
   display: grid;
   grid-rows: 100%;
   grid-template-columns: 25% 75%;
+}
+
+.triangle-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.triangle-right, .triangle-left {
+  width: 100%;
+  height: 46.4858623%;
+  position:absolute;
+  border: 0.1rem solid dimgrey;
+}
+
+.triangle-range-down {
+  height: 21.5492767%;
+}
+
+.triangle-left {
+  left: -55%;
+}
+
+.triangle-right {
+  right: -55%;
 }
 
 .chevrons-grid-backdrop-tile {
