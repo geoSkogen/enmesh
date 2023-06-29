@@ -13,6 +13,7 @@
 
 .tile {
   margin: 0.1rem;
+  z-index: 100;
 }
 
 .heavy-left {
@@ -106,7 +107,14 @@
 .chevrons-grid--inner-grid {
   display: grid;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows: 03.2258065% 03.2258065% 4.032258075% 12.096774225% 51.6129032% 19.3548387% 06.4516129%;
+  grid-template-rows: 03.2258065% 03.2258065% 4.032258075% 12.096774225% 51.6129032% 19.3548387% 06.4516129% 0%;
+}
+
+.chevrons-grid--inner-grid--positioned-blocks {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  position: relative;
 }
 
 .chevrons-grid--inner-grid--chevrons-grid {
@@ -117,6 +125,7 @@
   grid-row-end: 8;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100%;
+  z-index: 105;
 }
 
  .chevrons-grid--inner-grid--chevron-side-segments--tall {
@@ -182,6 +191,7 @@
   height: 46.4858623%;
   position:absolute;
   border: 0.1rem solid dimgrey;
+  bottom: -1px;
 }
 
 .triangle-range-down {
@@ -196,8 +206,96 @@
   right: -55%;
 }
 
-.chevrons-grid-backdrop-tile {
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 3;
+.rotated-block-backdrop-top {
+  position: absolute;
+  width: 82%;
+  height: 16px;
+  top: -16px;
+  z-index: 105;
+}
+
+.rotated-block-backdrop-bottom {
+  position: absolute;
+  width: 96%;
+  height: 16px;
+  top: -2px;
+  z-index: 105;
+}
+
+.rotated-block-wrapper,.positioned-block-wrapper {
+  position: relative;
+}
+
+.rotated-block {
+  position: absolute;
+  height: 106px;
+  width: 106px;
+  z-index: 125;
+  transform: rotate(45deg);
+  top: -76px;
+  border: 0.2rem solid dimgrey;
+}
+
+.rotated-backdrop-side {
+  overflow: visible;
+}
+
+.rotated-block-backdrop-left-side {
+  bottom: -5px;
+  border-left: 0.25rem solid dimgrey;
+  height: 54%;
+}
+
+.rotated-block-backdrop-right-side {
+  bottom: -5px;
+  border-right: 0.25rem solid dimgrey;
+  height: 54%;
+}
+
+.positioned-overlay-bar {
+  position: absolute;
+  width: 20%;
+  height: 0.2rem;
+  top: -572px;
+  z-index: 125;
+}
+
+.positioned-underlay-block-wrapper {
+  position: absolute;
+  width: 100%;
+  top: -572px;
+}
+
+.positioned-underlay-block {
+  height: 58px;
+  width: 34%;
+  z-index: 75;
+  overflow: hidden;
+  position: relative;
+  border: 0.2rem solid dimgrey;
+}
+
+.underlay-block-left {
+  margin-left: 15px;
+}
+
+.underlay-block-right {
+  margin-right: 19px;
+}
+
+.underlay-block-triangle-left, .underlay-block-triangle-right {
+  width: 100%;
+  height: 72px;
+  border: 0.275rem solid dimgrey;
+  position: absolute;
+}
+
+.underlay-block-triangle-left {
+  transform: skewY(135deg);
+  top: -60px;
+}
+
+.underlay-block-triangle-right {
+  transform: skewY(45deg);
+  top: -55px;
 }
