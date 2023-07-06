@@ -1,0 +1,102 @@
+#app {
+  padding: 0.33rem;
+  background-color: dimgrey;
+  border: 1rem solid lightgrey;
+  width: 836px;
+  position: relative;
+  z-index: 10;
+}
+
+.tile {
+  margin: 2px;
+  z-index: 100;
+}
+
+#top-grid-top-border-grid {
+  display: grid;
+  grid-template-columns: 02% 05.666666% 08.8333333% 08.8333333% 08% 08% 08.8333333% 08.8333333% 08% 08% 08.8333333% 08.8333333% 05.666666% 02%;
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 26.414px;
+}
+
+#top-grid-center-grid {
+  display: grid;
+  height: 515.0711px;
+  grid-template-columns: 02% 29.1111111% 04.3333333% 29.1111111% 04.3333333% 29.1111111% 02%;
+  grid-template-rows: 100%;
+}
+
+.border-baton, .center-baton {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 68.72% 31.28%;
+}
+
+.baton-top {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 6.3433433% 21.2686567% 72.388%;
+}
+
+.baton-bottom {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 90.9090909% 09.0909091%;
+}
+
+.center-baton-top-grid {
+  display: grid;
+  grid-template-columns: 50 50%;
+  grid-template-rows: 6.3433433% 21.2686567% 72.388%;
+}
+
+.center-baton-top-grid--top-grid {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.center-baton-bottom-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 90.9090909% 09.0909091%;
+}
+
+.center-baton-bottom-square-one {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.center-baton-bottom-square-two {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.center-baton-bottom-grid-wide,
+.center-baton-top-grid-wide {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.left-baton-top-split,
+.right-baton-top-split,
+.left-baton-bottom-split,
+.right-baton-bottom-split {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
