@@ -14,7 +14,7 @@
 
 #top-grid-top-border-grid {
   display: grid;
-  grid-template-columns: 02% 05.666666% 08.8333333% 08.8333333% 08% 08% 08.8333333% 08.8333333% 08% 08% 08.8333333% 08.8333333% 05.666666% 02%;
+  grid-template-columns: 01.6666667% 06.25% 8.75% 8.75% 07.9166667% 07.9166667% 8.75% 8.75% 07.9166667% 07.9166667% 8.75% 8.75% 06.25% 01.6666667%;
   grid-template-rows: 100%;
   width: 100%;
   height: 26.414px;
@@ -23,7 +23,15 @@
 #top-grid-center-grid {
   display: grid;
   height: 515.0711px;
-  grid-template-columns: 02% 29.1111111% 04.3333333% 29.1111111% 04.3333333% 29.1111111% 02%;
+  grid-template-columns: 01.6666667% 30% 03.3333334% 30% 3.3333334% 30% 01.6666667%;
+  grid-template-rows: 100%;
+}
+
+#mid-grid {
+  width: 100%;
+  display: grid;
+  height: 515.0711px;
+  grid-template-columns: 01.6666667% 13.5% 1.5% 1.5% 15.1666667% 15.1666667% 1.5% 1.5% 15.1666667% 15.1666667% 1.5% 1.5% 13.5% 01.6666667%;
   grid-template-rows: 100%;
 }
 
