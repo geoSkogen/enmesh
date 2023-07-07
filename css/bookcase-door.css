@@ -35,7 +35,6 @@
 
 .top-grid-center-grid--main-grid--side {
   display: grid;
-  height: 100%;
   grid-template-rows: 19.75% 51.75% 28.5%;
   grid-template-columns: 100%;
 }
@@ -51,7 +50,29 @@
 }
 
 .top-grid-center-grid--main-grid--side-matrix-bottom {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: repeat(8,12.5%);
+}
 
+.top-grid-center-grid--main-grid--center-matrix-left,
+.top-grid-center-grid--main-grid--center-matrix-right {
+  display: grid;
+  grid-template-rows: 9.166484524% 16.671715484% 45.6618% 28.5%;
+}
+
+.top-grid-center-grid--main-grid--center-matrix-left {
+  grid-template-columns: 17.3076923% 82.6923077%;
+}
+
+.top-grid-center-grid--main-grid--center-matrix-right {
+  grid-template-columns: 82.6923077% 17.3076923%;
+}
+
+.center-matrix-top-box {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .top-grid-center-grid--main-grid--bottom {
