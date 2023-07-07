@@ -62,6 +62,14 @@ p,a {
   background-color: darkseagreen;
 }
 
+.olive {
+  background-color: olive;
+}
+
+.darkolive {
+  background-color: darkolivegreen;
+}
+
 .slategrey {
   background-color: slategrey;
 }
@@ -72,6 +80,22 @@ p,a {
 
 .grey {
   background-color: lightslategrey;
+}
+
+.brown {
+  background-color: sienna;
+}
+
+.beige {
+  background-color: blanchedalmond;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.red {
+  background-color: brown;
 }
 
 .lightgrey {
