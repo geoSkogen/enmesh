@@ -12,6 +12,14 @@
   z-index: 100;
 }
 
+.notop {
+  margin-top: 0;
+}
+
+.nobottom {
+  margin-bottom: 0;
+}
+
 #top-grid-top-border-grid {
   display: grid;
   grid-template-columns: 01.6666667% 06.25% 8.75% 8.75% 07.9166667% 07.9166667% 8.75% 8.75% 07.9166667% 07.9166667% 8.75% 8.75% 06.25% 01.6666667%;
@@ -52,13 +60,18 @@
 .top-grid-center-grid--main-grid--side-matrix-bottom {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
-  grid-template-rows: repeat(8,12.5%);
+  grid-template-rows: 10.6% 10.6% 10.6% 10.6% 21.8% 31.9%;
+}
+
+.side-matrix-bottom-box {
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .top-grid-center-grid--main-grid--center-matrix-left,
 .top-grid-center-grid--main-grid--center-matrix-right {
   display: grid;
-  grid-template-rows: 9.166484524% 16.671715484% 45.6618% 28.5%;
+  grid-template-rows: 9.166484524% 16.671715484% 9.13236% 9.13236% 9.13236% 9.13236% 9.13236% 9.13236% 9.13236% 9.13236%;
 }
 
 .top-grid-center-grid--main-grid--center-matrix-left {
@@ -69,7 +82,13 @@
   grid-template-columns: 82.6923077% 17.3076923%;
 }
 
-.center-matrix-top-box {
+.top-grid-center-grid--main-grid--bottom {
+  display: grid;
+  grid-template-columns: 44.7% 10.6% 44.7%;
+  grid-template-rows: 100%;
+}
+
+.center-matrix-top-box, .center-matrix-bottom-box {
   display: grid;
   grid-column-start: 1;
   grid-column-end: 3;
