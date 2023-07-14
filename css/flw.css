@@ -50,12 +50,20 @@ p,a {
   justify-content: space-between;
 }
 
+.flex-around {
+  justify-content: space-around;
+}
+
 .steelblue {
   background-color: steelblue;
 }
 
 .lightblue {
   background-color: lightblue;
+}
+
+.blue {
+  background-color: cornflowerblue;
 }
 
 .green {
@@ -84,6 +92,10 @@ p,a {
 
 .brown {
   background-color: sienna;
+}
+
+.wood {
+
 }
 
 .beige {
