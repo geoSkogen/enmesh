@@ -17,6 +17,12 @@
   <div id="app" class="flex-row flex-around">
 
     <div id="left-pane" class="triptych-pane">
+
+      <div id="l--top-left-circle" class="round-tile overlay-tile green"></div>
+      <div id="l--top-right-circle" class="round-tile overlay-tile blue"></div>
+      <div id="l--bottom-left-circle" class="round-tile overlay-tile gold"></div>
+      <div id="l--bottom-right-circle" class="round-tile overlay-tile red"></div>
+
       <div class="triptych-grid">
         <div class="white tile top-grid-left-top-tile-l"></div>
         <div class="white tile top-grid-left-top-tile-r"></div>
@@ -340,13 +346,23 @@
     </div>
 
     <div id="center-pane" class="triptych-pane">
+
+      <div class="flex-row flex-center">
+        <div class="overflow-patch"></div>
+      </div>
+
+      <div id="m--top-left-circle" class="round-tile overlay-tile white"></div>
+      <div id="m--top-right-circle" class="round-tile overlay-tile red"></div>
+      <div id="m--bottom-left-circle" class="round-tile overlay-tile red"></div>
+      <div id="m--bottom-right-circle" class="round-tile overlay-tile blue"></div>
+
       <div class="triptych-grid">
-        <div class="white tile top-grid-top-tile-l"></div>
-        <div class="white tile top-grid-top-tile-r"></div>
-        <div class="white tile top-grid-side-tile-l"></div>
-        <div class="white tile top-grid-mid-tile-l"></div>
-        <div class="white tile top-grid-mid-tile-r"></div>
-        <div class="white tile top-grid-side-tile-r"></div>
+        <div class="white tile top-grid-top-tile-l overflow-mask"></div>
+        <div class="white tile top-grid-top-tile-r overflow-mask"></div>
+        <div class="white tile top-grid-side-tile-l overflow-mask"></div>
+        <div class="white tile top-grid-mid-tile-l overflow-mask"></div>
+        <div class="white tile top-grid-mid-tile-r overflow-mask"></div>
+        <div class="white tile top-grid-side-tile-r overflow-mask"></div>
 
         <div class="top-grid-bottom-grid">
           <div class="dimgrey tile top-grid-bottom-grid-two-row"></div>
@@ -698,6 +714,12 @@
     </div>
 
     <div id="right-pane" class="triptych-pane">
+
+      <div id="r--top-left-circle" class="round-tile overlay-tile red"></div>
+      <div id="r--top-right-circle" class="round-tile overlay-tile blue"></div>
+      <div id="r--bottom-left-circle" class="round-tile overlay-tile gold"></div>
+      <div id="r--bottom-right-circle" class="round-tile overlay-tile green"></div>
+
       <div class="triptych-grid">
         <div class="white tile top-grid-top-tile-l"></div>
         <div class="white tile top-grid-top-tile-r"></div>
@@ -726,7 +748,7 @@
           <div class="white tile top-grid-bottom-grid-one-row-top"></div>
           <div class="white tile top-grid-bottom-grid-one-row-bottom"></div>
 
-          <div class="red tile top-grid-bottom-grid-two-row"></div>
+          <div class="gold tile top-grid-bottom-grid-two-row"></div>
 
           <div class="black tile top-grid-bottom-grid-two-row"></div>
 
