@@ -63,13 +63,15 @@ window.addEventListener('load', function (event) {
   }
 
   function get_user_input() {
-    const data = {"first_strings_arr" : [[]], "next_strings_arr" : [[]]}
+    const data = {"first_strings_arr" : [], "next_strings_arr" : []}
     const field_rows = document.querySelectorAll('.enmesh-fields')
     for (let i = 0; i < field_rows.length; i++) {
       if (field_rows[i].querySelectorAll('input')[0].value &&
         field_rows[i].querySelectorAll('input')[1].value) {
-        data['first_strings_arr'][0].push( field_rows[i].querySelectorAll('input')[0].value )
-        data['next_strings_arr'][0].push( field_rows[i].querySelectorAll('input')[1].value )
+          data['first_strings_arr'][i] = []
+          data['next_strings_arr'][i] = []
+        data['first_strings_arr'][i].push( field_rows[i].querySelectorAll('input')[0].value )
+        data['next_strings_arr'][i].push( field_rows[i].querySelectorAll('input')[1].value )
       }
     }
     return data["first_strings_arr"].length && data["next_strings_arr"].length ? data : null
@@ -78,6 +80,7 @@ window.addEventListener('load', function (event) {
   const app_dom = document.querySelector('#app')
   const text_dom = document.querySelector('#text-display')
   let user_input = null
+
   document.querySelector('#add-field').addEventListener('click', function (event) {
     add_field()
   })
